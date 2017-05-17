@@ -43,6 +43,7 @@
 </ul>
 
 
+
 <div class="row">
   <div class="col-md-12">
     <form action="/create_movie" method="post">
@@ -55,7 +56,7 @@
           Title
         </label>
 
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @movie.title %>">
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control">
       </div>
 
       <!-- Label and input for year -->
@@ -76,31 +77,13 @@
         <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @movie.duration %>">
       </div>
 
-      <!-- Label and input for description -->
-      <div class="form-group">
-        <label for="description" class="control-label">
-          Description
-        </label>
-
-        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @movie.description %></textarea>
-      </div>
-
-      <!-- Label and input for image_url -->
-      <div class="form-group">
-        <label for="image_url" class="control-label">
-          Image url
-        </label>
-
-        <input type="text" id="image_url" name="image_url" placeholder="Image url" class="form-control" value="<%= @movie.image_url %>">
-      </div>
-
       <!-- Label and input for director_id -->
       <div class="form-group">
-        <!-- <label for="director_id" class="control-label">
+        <label for="director_id" class="control-label">
           Director
-        </label> -->
+        </label>
 
-        <input type="hidden" type="text" id="director_id" name="director_id" placeholder="Director" class="form-control" value="<%= @director.id %>">
+        <input type="text" id="director_id" name="director_id" placeholder="<%= @director.id %>" class="form-control" value="<%= @director.id %>">
 
         <button class="btn btn-success">
           Create Movie

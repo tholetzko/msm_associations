@@ -23,12 +23,14 @@
         <label for="movie_id" class="control-label">
           Movie
         </label>
-<!-- 
+        <!--
         <input type="text" id="movie_id" name="movie_id" placeholder="Movie" class="form-control" value="<%= @character.movie_id %>">
       </div> -->
 
       <%= select_tag("movie_id", options_from_collection_for_select(Movie.all, :id, :title, @character.movie_id), :class => "form-control") %>
-
+      <p>
+        <a href="/movies/new">or add a new movie</a>
+      </p>
 
       <!-- Label and input for actor_id -->
       <div class="form-group">
@@ -36,23 +38,25 @@
           Actor
         </label>
 
-        <input type="text" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%= @character.actor_id %>">
-      </div>
+        <%= select_tag("actor_id", options_from_collection_for_select(Actor.all, :id, :name, @character.actor_id), :class => "form-control") %>
+        <p>
+          <a href="/actors/new">or add a new actor</a>
+        </p>
 
-      <!-- Label and input for name -->
-      <div class="form-group">
-        <label for="name" class="control-label">
-          Name
-        </label>
+        <!-- Label and input for name -->
+        <div class="form-group">
+          <label for="name" class="control-label">
+            Name
+          </label>
 
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @character.name %>">
-      </div>
+          <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @character.name %>">
+        </div>
 
-      <button class="btn btn-success">
-        Create Character
-      </button>
-      or
-      <a href="/characters">Cancel</a>
-    </form>
+        <button class="btn btn-success">
+          Create Character
+        </button>
+        or
+        <a href="/characters">Cancel</a>
+      </form>
+    </div>
   </div>
-</div>
