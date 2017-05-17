@@ -45,8 +45,6 @@
     <% end %>
   </ul>
 
-
-
   <div class="row">
     <div class="col-md-12">
       <form action="/create_character" method="post">
@@ -59,31 +57,39 @@
             Movie
           </label>
 
-          <%= select_tag("movie_id", options_from_collection_for_select(Movie.all, :id, :title, @character.movie_id), :class => "form-control") %>
+          <input type="text" id="movie_id" name="movie_id" placeholder="<%= @movie.id %>" class="form-control" value="<%= @movie.id %>">
+        </div>
 
-          <!-- Label and input for actor_id -->
-          <div class="form-group">
-            <label for="actor_id" class="control-label">
-              Actor
-            </label>
 
-            <input type="text" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%= @character.actor_id %>">
-          </div>
+        <!-- Label and input for actor_id -->
+        <div class="form-group">
 
-          <!-- Label and input for name -->
-          <div class="form-group">
-            <label for="name" class="control-label">
-              Name
-            </label>
+          <label for="actor_id" class="control-label">
+            Actor
+          </label>
 
-            <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @character.name %>">
-          </div>
+          <%= select_tag("actor_id", options_from_collection_for_select(Actor.all, :id, :name, @movie.id), :class => "form-control")%>
 
-          <button class="btn btn-success">
-            Create Character
-          </button>
-          or
-          <a href="/characters">Cancel</a>
-        </form>
-      </div>
+<p>
+<a href="/actors/new">or add new Actor</a>
+</p>
+
+        </div>
+
+        <!-- Label and input for name -->
+        <div class="form-group">
+          <label for="name" class="control-label">
+            Name
+          </label>
+
+          <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @character.name %>">
+        </div>
+
+        <button class="btn btn-success">
+          Create Character
+        </button>
+        or
+        <a href="/characters">Cancel</a>
+      </form>
     </div>
+  </div>
