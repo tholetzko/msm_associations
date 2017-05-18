@@ -4,5 +4,8 @@ class Actor < ApplicationRecord
   # - dob: no rules
   # - bio: no rules
   # - image_url: no rules
-  
+
+has_many :characters, :class_name => "Character", :foreign_key => "actor_id"
+has_many :movies, :class_name => "Character", :foreign_key => "movie_id"
+
 end

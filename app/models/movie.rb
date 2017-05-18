@@ -15,4 +15,7 @@ class Movie < ApplicationRecord
 
   # - image_url: no rules
 
+  # Belongs to
+  belongs_to :director, :class_name => "Director", :foreign_key => "director_id"
+
 end

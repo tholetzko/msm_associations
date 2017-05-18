@@ -22,7 +22,7 @@
 
       <dt>Director</dt>
       <dd>
-        <a href="/directors/<%= @movie.director_id %>"><%= Director.find_by(:id => @movie.director_id).try(:name) %></a></dd>
+        <a href="/directors/<%= @movie.director_id %>"><%= @movie.director.name %></a></dd>
       </dl>
 
       <div class="btn-group btn-group-justified">
