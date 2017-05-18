@@ -18,6 +18,8 @@ class Movie < ApplicationRecord
   # Belongs to
   belongs_to :director, :class_name => "Director", :foreign_key => "director_id"
 
- has_many :characters, :class_name => "Character", :foreign_key => "movie_id"
- has_many :actors, :class_name => "Actor", :foreign_key => "id"
+  has_many :characters, :class_name => "Character", :foreign_key => "movie_id"
+  has_many :actors, :class_name => "Actor", :foreign_key => "id"
+
+  has_many :actors, :through => :characters
 end

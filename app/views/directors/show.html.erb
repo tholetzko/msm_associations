@@ -38,23 +38,25 @@
 </div>
 
 <ul>
-
   <% @director.movies.each do |movie| %>
   <li>
     <a href="/movies/<%= movie.id %>"><%= movie.title %></a>
   </li>
   <% end %>
-
 </ul>
 
 <div class="row">
+
   <div class="col-md-12">
+
     <form action="/create_movie" method="post">
+
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for title -->
       <div class="form-group">
+
         <label for="title" class="control-label">
           Title
         </label>
@@ -64,35 +66,43 @@
 
       <!-- Label and input for year -->
       <div class="form-group">
+
         <label for="year" class="control-label">
           Year
         </label>
 
-        <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="<%= @movie.year %>">
+        <input type="text" id="year" name="year" placeholder="Year" class="form-control">
       </div>
 
       <!-- Label and input for duration -->
       <div class="form-group">
+
         <label for="duration" class="control-label">
           Duration
         </label>
 
-        <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @movie.duration %>">
+        <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control">
       </div>
 
       <!-- Label and input for director_id -->
       <div class="form-group">
-        <label for="director_id" class="control-label">
-          Director
-        </label>
 
-        <input type="text" id="director_id" name="director_id" placeholder="<%= @director.id %>" class="form-control" value="<%= @director.id %>">
+        <input type="hidden" id="director_id" name="director_id" class="form-control" value="<%= @director.id %>">
+
+        <p><a href="/directors/new">or add a new director</a></p>
 
         <button class="btn btn-success">
           Create Movie
         </button>
+
         or
+
         <a href="/movies">Cancel</a>
-      </form>
-    </div>
+
+      </div>
+
+    </form>
+
   </div>
+
+</div>
