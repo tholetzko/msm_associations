@@ -18,14 +18,14 @@
       <dd><%= @actor.bio %></dd>
 
       <dt>Character</dt>
-      <dd><%= Character.where(:actor_id => @actor.id).try(:count) %></dd>
+      <dd><%= @actor.characters.count %></dd>
 
       <dt>Filmography</dt>
       <dd>
-        <% Character.where(:actor_id => @actor.id).each do |character| %>
+        <% @actor.movies.each do |movie| %>
         <li>
-          <a href="/movies/<%= Movie.find_by(:id => character.movie_id).id %>">
-            <%= Movie.find_by(:id => character.movie_id).title %>
+          <a href="/movies/<%= movie.id %>">
+            <%= movie.name %>
           </a>
         </li>
         <% end %>
